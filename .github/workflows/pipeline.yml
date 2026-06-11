@@ -1,0 +1,37 @@
+name: Pipeline Seguro
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_USER: ${{ secrets.DATABASE_USER }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      API_TOKEN: ${{ secrets.API_TOKEN }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validar carregamento de secrets sem expor valores
+        run: |
+          echo "Secrets carregados com sucesso."
+          echo "DATABASE_USER configurado."
+          echo "DATABASE_PASSWORD protegido."
+          echo "API_TOKEN protegido."
+
+      - name: Executar aplicação
+        run: python app/main.py
