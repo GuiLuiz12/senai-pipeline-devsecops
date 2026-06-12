@@ -168,8 +168,6 @@ Secrets a configurar (valores fictícios para o laboratório):
 | `API_TOKEN` | Configurado |
 | `JWT_SECRET` | Configurado |
 
-> **Evidência:** Inserir screenshot da tela de Repository secrets mostrando os nomes dos secrets com valores ocultos (`***`).
-
 ![Evidência GitHub Secrets](docs/evidencias/github-secrets.png)
 
 ---
@@ -199,7 +197,6 @@ Token da API carregado: ***
 Aplicação executada com sucesso.
 ```
 
-> **Evidência:** Inserir screenshot do pipeline com status verde (success).
 
 ![Evidência Pipeline](docs/evidencias/pipeline-run.png)
 
